@@ -1,19 +1,19 @@
 package c1.linkedList;
 
 public class DoubleListNode {
-    int val;
-    int idx;
-    DoubleListNode next;
-    DoubleListNode pre;
+    public int val;
+    public int idx;
+    public DoubleListNode next;
+    public DoubleListNode pre;
 
-    DoubleListNode() {
+    public DoubleListNode() {
     }
 
-    DoubleListNode(int val) {
+    public DoubleListNode(int val) {
         this.val = val;
     }
 
-    DoubleListNode(int val, int idx, DoubleListNode pre, DoubleListNode next) {
+    public DoubleListNode(int val, int idx, DoubleListNode pre, DoubleListNode next) {
         this.val = val;
         this.idx = idx;
         this.next = next;

@@ -3,6 +3,15 @@ package c1.homework;
 //找出最长9的后缀
 public class P66PlusOne {
     public int[] plusOne(int[] digits) {
+        /*
+        如果 digits 的末尾没有 9，例如 [1, 2, 3]那么我们直接将末尾的数加一，得到 [1, 2, 4]并返回；
+
+        如果  digits 的末尾有若干个 9，例如 [1,2,3,9,9]，那么我们只需要找出从末尾开始的第一个不为 9 的元素，即 3，将该元素加一，得到 [1, 2, 4, 9, 9]。
+        随后将末尾的 9 全部置零，得到 [1, 2, 4, 0, 0]  并返回
+
+        下面的逻辑是从后往前，如果是9，则continue继续往前，
+        直到找到第一个不为9的数字，加1，同时要把跳过的9变成0，99变成00，999变成000
+         */
         for (int i=digits.length -1 ; i>=0 ;i--) {
             if (digits[i] != 9) {
                 digits[i] = digits[i] + 1;
@@ -10,7 +19,8 @@ public class P66PlusOne {
                 for (int j=i+1;j<digits.length;j++)
                     digits[j] = 0;
                 return digits;
-            }
+            }else
+                continue;
         }
 
         //digits全是9
@@ -21,6 +31,14 @@ public class P66PlusOne {
         return ans;
     }
 
+}
+
+class SolutionP66 {
+    public static void main(String[] args) {
+        P66PlusOne p = new P66PlusOne();
+        int [] nums = {1,2,9};
+        p.plusOne(nums);
+    }
 }
 
 
