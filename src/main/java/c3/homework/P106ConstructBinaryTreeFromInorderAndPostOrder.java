@@ -3,6 +3,10 @@ package c3.homework;
 import c3.递归.TreeNode;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+/*
+时间O(n)
+空间复杂度：O(n)
+ */
 public class P106ConstructBinaryTreeFromInorderAndPostOrder {
     int[] inorder;
     int[] postorder;

@@ -12,6 +12,8 @@ import java.util.List;
 nums可重复
 
 
+时间O(n×n!)
+空间复杂度：O(n)O(n
  */
 public class P47PermutationsTwo {
 
