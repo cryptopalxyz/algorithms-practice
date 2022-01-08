@@ -13,8 +13,6 @@ public class P200NumberOfIslands {
         int m = grid.length;
         int n = grid[0].length;
 
-        if (n==1 && grid[0][0] == '0') return 0;
-        if (n==1 && grid[0][0] == '1') return 1;
         //MakeSets
         fa = new int[m * n];
         for (int i = 0; i < m * n; i++) fa[i] = i;
@@ -36,13 +34,15 @@ public class P200NumberOfIslands {
             }
 
 
-        int ans = 0;
+        Set<Integer> s = new HashSet<>();
 
-        //这里条件错了，我不知道该怎么写
-        for (int i = 0; i < n; i++)
-            if (find(i) == i && find(i) !=0) ans++;
+        for (int i=0;i<m;i++)
+            for(int j=0;j<n;j++) {
+                if (grid[i][j] == '1')
+                    s.add(find(num(i, j,n)));
+            }
 
-        return ans;
+        return s.size();
 
 
     }
@@ -73,7 +73,7 @@ class SolutionP200BCJ {
                 {'0', '0', '1', '0', '0'},
                 {'0', '0', '0', '1', '1'}};
         grid = new char[][]{{'1'}};
-        grid = new char[][] {{'0','0','0','0','0','0','0'}};
+       // grid = new char[][] {{'0','0','0','0','0','0','0'}};
         P200NumberOfIslands p = new P200NumberOfIslands();
         p.numIslands(grid);
     }
