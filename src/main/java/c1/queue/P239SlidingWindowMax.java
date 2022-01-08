@@ -23,16 +23,21 @@ for 每个元素
 
  */
 public class P239SlidingWindowMax {
-    //下标（时间）递增，值递减的队列
+    //下标（时间）递减，用removeLast来移除过界元素
+    //值递增的队列，用peekLast来获取最大元素
     public int[] maxSlidingWindow(int[] nums, int k) {
 
-        //下标
+
         List<Integer> ans = new ArrayList<>();
+        //下标
         Deque<Integer> q = new LinkedList<>();
         for (int i=0; i<nums.length; i++) {
+            //q里面的下标是递减的，队尾先出界
             while (!q.isEmpty() && q.peekLast() <= i - k) q.removeLast(); //删除掉出界的
-            //插入新选项，维护单调性
+            //插入新选项，维护单调性,大的来了，并且生命周期更长，把小的全扔掉，从队头扔掉
+            //如果没扔掉，说明新来的比旧的还小，新来的加到对头
             while (!q.isEmpty() && nums[q.peekFirst()] <= nums[i]) q.removeFirst();
+            //加到对头，维护的是递增的队列
             q.push(i);
             //取队头，更新答案
             if (i >= k - 1) {
