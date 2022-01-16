@@ -1,6 +1,8 @@
 package c1.homework;
 
-//找出最长9的后缀
+// 从后往前找第一个不是9的数字，加1，把找过的全部变成0
+// 假如没找到9， 那么直接把最后一个数字加1
+// 假如全是9，增加1位，
 public class P66PlusOne {
     public int[] plusOne(int[] digits) {
         /*

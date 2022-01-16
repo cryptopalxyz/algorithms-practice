@@ -22,7 +22,7 @@ public class P49GroupAnagrams {
         Map<String, List<String>> map = new HashMap<>();
         for (String s: strs) {
             char[] array = s.toCharArray();
-            Arrays.sort(array);
+            Arrays.sort(array); //把str先变成CharArray，再排序，异位词有相同的CharArray，即相同的key，放入map
             String key = new String(array);
             List<String > list = map.getOrDefault(key, new ArrayList<>());
             list.add(s);

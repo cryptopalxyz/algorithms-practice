@@ -23,11 +23,12 @@ public class P102NaryTreeLevelOrderTraversal {
             Node node = q.peek().getKey();
             Integer depth = q.poll().getValue();
             //访问数组前先处理数组越界
+            //seq要添加新元素
             if (depth >= seq.size()) seq.add(new ArrayList<Integer>());
             seq.get(depth).add(node.val); //把数组的depth层加上该元素
             for (Node child: node.children) {
                 //孩子的depth要+1
-                q.add(new Pair<Node, Integer>(child, depth+1));
+                q.add(new Pair<Node, Integer>(child, depth+1));//depth也要加进去，后面要用于seq的"key"
             }
         }
         return seq;

@@ -22,10 +22,10 @@ public class P104MaxDepthAnother {
     void calc(TreeNode root) {
         if (root == null) return;
         ans = Math.max(ans, depth);
-        //还原现场
         depth++;
         calc(root.left);
         calc(root.right);
+        //还原现场
         depth--;
     }
 }

@@ -50,7 +50,7 @@ public class P236NearestCommonAncestorOfABinaryTree {
         //左子树有q，右子树右q，或者该节点就是q
         if (leftResult.second || rightResult.second || root.val == q.val)
             result.second = true;
-        //ans ==null 才是最小公共祖先
+        //ans ==null 才是最小公共祖先，其他的是祖先，但不是最深的最小的
         if (result.first && result.second && ans==null)
             ans = root;
 

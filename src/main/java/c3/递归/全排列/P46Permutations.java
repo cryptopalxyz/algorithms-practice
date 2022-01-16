@@ -39,7 +39,7 @@ public class P46Permutations {
             a.add(nums[i]);
             used[i] = true;
             recur(nums, pos + 1);
-            //还原现场
+            //还原现场，刚才加的要去掉
             a.remove(a.size() - 1);
             used[i] = false;
         }

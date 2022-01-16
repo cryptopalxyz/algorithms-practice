@@ -16,11 +16,15 @@ import java.util.List;
 排除冗余的关键：若j1比j2差，j1的生命周期还比j2短，则j1就没用了
 
 for 每个元素
-  1while（队头过期）对头出队
-  2取队头为最佳选项，计算答案
+  1while（队尾过期）对尾出队
+  2取队尾为最佳选项，计算答案
   3while（队尾与新元素不满足单调性） 队尾出队 2/3的顺序取决i是不是候选项
   4新元素入队
 
+把出界的老元素去掉；
+老元素还有用（比新的大），就留着，没有用的话就while去掉；
+把新的放到对头；
+没轮从队尾取最大值
  */
 public class P239SlidingWindowMax {
     //下标（时间）递减，用removeLast来移除过界元素
@@ -37,8 +41,9 @@ public class P239SlidingWindowMax {
             //插入新选项，维护单调性,大的来了，并且生命周期更长，把小的全扔掉，从队头扔掉
             //如果没扔掉，说明新来的比旧的还小，新来的加到对头
             while (!q.isEmpty() && nums[q.peekFirst()] <= nums[i]) q.removeFirst();
-            //加到对头，维护的是递增的队列
+            //加到对头，维护的是下标（时间）递减的队列
             q.push(i);
+
             //取队头，更新答案
             if (i >= k - 1) {
                 ans.add(nums[q.peekLast()]);

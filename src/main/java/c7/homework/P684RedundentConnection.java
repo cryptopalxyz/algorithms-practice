@@ -16,7 +16,7 @@ public class P684RedundentConnection {
             int[] edge = edges[i];
             int node1 = edge[0], node2 = edge[1];
             //如果两个顶点属于不同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间不连通，因此当前的边不会导致环出现，合并这两个顶点的连通分量。
-            //一直合并，知道发现有相同的连通分量，就走else
+            //一直合并，直到发现有相同的连通分量，就走else
             if (find(node1) != find(node2)) {
                 unionSet(node1, node2);
             } else {

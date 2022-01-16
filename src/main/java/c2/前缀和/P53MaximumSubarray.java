@@ -10,6 +10,10 @@ package c2.前缀和;
 
 用前缀最小值，枚举右侧，
 
+O（N）固定前缀和
+1. 求前缀和
+2. 求前缀和min
+3. 循环前缀和数组，把前缀和-min 求最大值
  */
 public class P53MaximumSubarray {
     public int maxSubArray(int[] nums) {

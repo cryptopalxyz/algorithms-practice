@@ -17,16 +17,16 @@ public class P874WalkingRobotSimulation {
         int x = 0, y = 0;
         int dir = 0;//north=0,east=1,south=2,west=3//往右转(dir+1) mod 4, 往左转(dir-1+4)mod4
         //网格中行走，技巧：方向数组，
-        //北向每走一步x y变化量，向东，向南，向西
+        //北向每走一步x y变化量，向北，向东，向南，向西
         int[] dx = {0, 1, 0, -1};
         int[] dy = {1, 0, -1, 0};
         int ans = 0;
 
         for (int command : commands) {
             if (command == -1)
-                dir = (dir + 1) % 4;
+                dir = (dir + 1) % 4;//怎么推出来的？
             else if (command == -2)
-                dir = (dir + 3) % 4;
+                dir = (dir + 3) % 4;//怎么推出来的？
             else {
                 for (int i = 0; i < command; i++) {
                     //下一个x，y的点

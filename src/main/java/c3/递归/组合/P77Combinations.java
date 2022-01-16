@@ -3,6 +3,11 @@ package c3.递归.组合;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+chosen表示选不选，chosen.add(i)表示选，chosen.remove(chosen.size() -1)还原现场
+dfs(i+1)
+
+ */
 public class P77Combinations {
 
     List<Integer> chosen = new ArrayList<>();

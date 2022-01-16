@@ -10,8 +10,8 @@ public class P25ReverseNodesInKGroup {
 
 
         while (head != null) {
-            ListNode end = getEnd(head, k);
-            if (end == null) break; //不够K，说明到最后了，不需要反转，直接退出
+            ListNode end = getEnd(head, k); //找K个
+            if (end == null) break; //不够K，说明到最后了，不需要反转，直接退出，整个持续走完了
 
             ListNode nextGroupHead = end.next;
             // 2.一组内部（head和end之间）要反转（调用反转链表）
@@ -37,7 +37,7 @@ public class P25ReverseNodesInKGroup {
             head = head.next;
             k--;
         }
-        return head;
+        return head; //如果head = null 则是提前退出
     }
 
 
